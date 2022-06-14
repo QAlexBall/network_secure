@@ -6,11 +6,12 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "this is https server page, single succes!")
+	fmt.Fprint(w, "this is https server page, single success!")
 }
 
 func main() {
+	fmt.Println("Server Starting...")
 	http.HandleFunc("/", handler)
-	http.ListenAndServeTLS(":8081",
-		"../server.crt", "../server.key", nil)
+	http.ListenAndServeTLS(":8082",
+		"./server/server.crt", "./server/server.key", nil)
 }
